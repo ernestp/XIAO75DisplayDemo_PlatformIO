@@ -1,13 +1,15 @@
-# XIAO75DisplayDemo_Arduino
+# XIAO75DisplayDemo_PlatformIO
 
 [XIAO 7.5" ePaper Panel](https://www.seeedstudio.com/XIAO-7-5-ePaper-Panel-p-6416.html) Fast refresh / Partial refresh demo.
 
-Project is based on [Good Display](https://www.good-display.com) [GDEY075T7](https://www.good-display.com/product/396.html) 7.5-inch e-paper display [Arduino code sample](https://www.good-display.com/companyfile/687.html).
+Project is based on [Good Display](https://www.good-display.com) [GDEY075T7](https://www.good-display.com/product/396.html) 7.5-inch e-paper display [Arduino code sample](https://www.good-display.com/companyfile/687.html), converted to PlatformIO format.
 
 
 ## Hardware Requirements
-
 - [XIAO microcontroller board with 7.5-inch ePaper Panel](https://www.seeedstudio.com/XIAO-7-5-ePaper-Panel-p-6416.html)
+
+**Or**
+- Bring your own microcontroller board
 - [GDEY075T7 7.5-inch e-paper display](https://www.good-display.com/product/396.html)
 - Appropriate wiring connections (see DisplayPinout.h for pin configuration)
 
@@ -22,28 +24,57 @@ Project is based on [Good Display](https://www.good-display.com) [GDEY075T7](htt
 
 ## Getting Started
 
+### PlatformIO
+
+This project uses PlatformIO as the build system. To build and upload this project:
+
+1. Install PlatformIO Core or PlatformIO IDE extension for VS Code
+2. Clone this repository
+3. Open the project folder in PlatformIO IDE or VS Code with PlatformIO extension
+4. Connect your XIAO board to your computer
+5. Click on the Upload button or run `pio run -t upload` in the terminal
+
+### Project Structure
+
+- `src/`: Contains source files (`.cpp`)
+  - `main.cpp`: Main application code
+  - `Display_EPD_W21.cpp`: E-Paper display driver implementation
+  - `Display_EPD_W21_spi.cpp`: E-Paper display SPI communication implementation
+- `include/`: Contains header files (`.h`)
+  - `DisplayPinout.h`: Hardware pinout definitions
+  - `XIAO75C3.h`: XIAO ESP32-C3 specific pin definitions
+  - `Display_EPD_W21.h`: E-Paper display driver header
+  - `Display_EPD_W21_spi.h`: E-Paper display SPI communication header
+  - `Ap_29demo.h`: Demo image data and assets
+
 Connect your XIAO 7.5" ePaper Panel to your computer using a USB cable.
 
-Install `esp32 by Espressif Systems` board in the board manager.
-
-Select port and `XIAO C3` board type in the Arduino IDE.
-
-Compile and upload the sketch to your board.
+Use PlatformIO to build and upload the project as described in the PlatformIO section above.
 
 ### Dependencies
 
-This project requires the following libraries:
-- [Arduino IDE](https://www.arduino.cc/en/software)
-- In Board Manager, install `esp32 by Espressif Systems`
-- SPI (built into Arduino IDE)
-- Custom display libraries included in this repository:
-  - Display_EPD_W21.h
-  - Display_EPD_W21_spi.h
-  - Ap_29demo.h
+All dependencies are managed through PlatformIO:
+
+- PlatformIO Core or VS Code with PlatformIO Extension
+- The project automatically installs:
+  - espressif32 platform
+  - Arduino framework for ESP32
+  - SPI library
+
+- Custom display libraries are included in the project structure:
+  - Display_EPD_W21.h and Display_EPD_W21.cpp
+  - Display_EPD_W21_spi.h and Display_EPD_W21_spi.cpp
+  - Ap_29demo.h (image data)
 
 ### Modifying the code
 
-If use different hardware (different pinout) - create a new header file, specific for your pinout and include it in the `DisplayPinout.h` file. Use XIAOC3.h as an example.
+If you use different hardware (different pinout):
+
+1. Create a new header file in the `include` directory, specific for your pinout
+2. Include it in the `DisplayPinout.h` file
+3. Use `XIAO75C3.h` as an example
+
+When adding new source files (.cpp), place them in the `src` directory. Header files (.h) should go in the `include` directory to maintain the PlatformIO project structure.
 
 ### Installation
 
