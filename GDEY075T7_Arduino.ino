@@ -5,10 +5,10 @@
 #include "Ap_29demo.h"  
 
 void setup() {
-   pinMode(A14, INPUT);  //BUSY
-   pinMode(A15, OUTPUT); //RES 
-   pinMode(A16, OUTPUT); //DC   
-   pinMode(A17, OUTPUT); //CS   
+   pinMode(D2, INPUT);  //BUSY
+   pinMode(D0, OUTPUT); //RES 
+   pinMode(D3, OUTPUT); //DC   
+   pinMode(D1, OUTPUT); //CS   
    //SPI
    SPI.beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE0)); 
    SPI.begin ();  
@@ -42,6 +42,7 @@ void loop() {
       EPD_WhiteScreen_ALL_Fast(gImage_1); //To display one image using fast refresh.
       EPD_DeepSleep(); //Enter the sleep mode and please do not delete it, otherwise it will reduce the lifespan of the screen.
       delay(2000); //Delay for 2s.
+      
   #if 1 //Partial refresh demostration.
   //Partial refresh demo support displaying a clock at 5 locations with 00:00.  If you need to perform partial refresh more than 5 locations, please use the feature of using partial refresh at the full screen demo.
   //After 5 partial refreshes, implement a full screen refresh to clear the ghosting caused by partial refreshes.
