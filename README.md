@@ -1,6 +1,9 @@
-# Xiao75Display
+# XIAO75DisplayDemo_Arduino
 
-Arduino sketch for controlling a GDEY075T7 7.5-inch e-paper display (EPD) with a Seeed Studio XIAO ESP32C3 microcontroller board.
+[XIAO 7.5" ePaper Panel](https://www.seeedstudio.com/XIAO-7-5-ePaper-Panel-p-6416.html) Fast refresh / Partial refresh demo.
+
+Project is based on [Good Display](https://www.good-display.com) [GDEY075T7](https://www.good-display.com/product/396.html) 7.5-inch e-paper display [Arduino code sample](https://www.good-display.com/companyfile/687.html).
+
 
 ## Hardware Requirements
 
@@ -19,9 +22,13 @@ Arduino sketch for controlling a GDEY075T7 7.5-inch e-paper display (EPD) with a
 
 ## Getting Started
 
-### Wiring
-
 Connect your XIAO 7.5" ePaper Panel to your computer using a USB cable.
+
+Install `esp32 by Espressif Systems` board in the board manager.
+
+Select port and `XIAO C3` board type in the Arduino IDE.
+
+Compile and upload the sketch to your board.
 
 ### Dependencies
 
@@ -64,7 +71,7 @@ As mentioned in the code comments:
 
 ## License
 
-[Add your license information here]
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
 ## Credits
 
