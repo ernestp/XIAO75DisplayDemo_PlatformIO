@@ -1,17 +1,18 @@
 #ifndef _DISPLAY_EPD_W21_SPI_
 #define _DISPLAY_EPD_W21_SPI_
 #include "Arduino.h"
+#include "DisplayPinout.h"
 
 //IO settings
 //SCK--GPIO23(SCLK)
 //SDIN---GPIO18(MOSI)
-#define isEPD_W21_BUSY digitalRead(D2)  //BUSY
-#define EPD_W21_RST_0 digitalWrite(D0,LOW)  //RES
-#define EPD_W21_RST_1 digitalWrite(D0,HIGH)
-#define EPD_W21_DC_0  digitalWrite(D3,LOW) //DC
-#define EPD_W21_DC_1  digitalWrite(D3,HIGH)
-#define EPD_W21_CS_0 digitalWrite(D1,LOW) //CS
-#define EPD_W21_CS_1 digitalWrite(D1,HIGH)
+#define isEPD_W21_BUSY digitalRead(EPD_BUSY_PIN)  //BUSY
+#define EPD_W21_RST_0 digitalWrite(EPD_RST_PIN,LOW)  //RES
+#define EPD_W21_RST_1 digitalWrite(EPD_RST_PIN,HIGH)
+#define EPD_W21_DC_0  digitalWrite(EPD_DC_PIN,LOW) //DC
+#define EPD_W21_DC_1  digitalWrite(EPD_DC_PIN,HIGH)
+#define EPD_W21_CS_0 digitalWrite(EPD_CS_PIN,LOW) //CS
+#define EPD_W21_CS_1 digitalWrite(EPD_CS_PIN,HIGH)
 
 
 void SPI_Write(unsigned char value);

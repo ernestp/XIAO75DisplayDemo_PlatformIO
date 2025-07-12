@@ -1,14 +1,15 @@
 #include <SPI.h>
 //EPD
+#include "DisplayPinout.h"
 #include "Display_EPD_W21_spi.h"
 #include "Display_EPD_W21.h"
 #include "Ap_29demo.h"  
 
 void setup() {
-   pinMode(D2, INPUT);  //BUSY
-   pinMode(D0, OUTPUT); //RES 
-   pinMode(D3, OUTPUT); //DC   
-   pinMode(D1, OUTPUT); //CS   
+   pinMode(EPD_BUSY_PIN, INPUT); //BUSY
+   pinMode(EPD_RST_PIN, OUTPUT); //RES 
+   pinMode(EPD_DC_PIN, OUTPUT);  //DC   
+   pinMode(EPD_CS_PIN, OUTPUT);  //CS   
    //SPI
    SPI.beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE0)); 
    SPI.begin ();  
